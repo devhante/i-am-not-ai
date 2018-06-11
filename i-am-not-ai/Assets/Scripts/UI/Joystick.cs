@@ -42,9 +42,9 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             Vector3 position = centerPos + (mousePos - centerPos) * ratio;
             controller.position = position;
 
-            normal = Vector3.Normalize(mousePos - centerPos);
+            Normal = Vector3.Normalize(mousePos - centerPos);
             //float degree = Mathf.Atan2(mousePos.y - centerPos.y, mousePos.x - centerPos.x) * 180.0f / Mathf.PI;
-            Debug.Log(normal);
+            Debug.Log(Normal);
 
             yield return null;
         }
