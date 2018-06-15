@@ -751,7 +751,6 @@ GameObject:
   - component: {fileID: 1331213907}
   - component: {fileID: 1331213906}
   - component: {fileID: 1331213905}
-  - component: {fileID: 1331213908}
   m_Layer: 5
   m_Name: Joystick
   m_TagString: Untagged
@@ -776,7 +775,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -450, y: -170}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1331213905
 MonoBehaviour:
@@ -808,7 +807,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b060e64aeca41ea47a062c394cd36d86, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bbb989f3997a79b4793d01565044ebfe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -822,6 +821,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1331213903}
+<<<<<<< Updated upstream
 --- !u!114 &1331213908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,6 +863,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+=======
+>>>>>>> Stashed changes
 --- !u!1 &1960910287
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +875,7 @@ GameObject:
   - component: {fileID: 1960910288}
   - component: {fileID: 1960910290}
   - component: {fileID: 1960910289}
+  - component: {fileID: 1960910291}
   m_Layer: 5
   m_Name: Look
   m_TagString: Untagged
@@ -932,6 +935,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1960910287}
+--- !u!114 &1960910291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1960910287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 185650df0bcd10946881200c257494e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2063582084
 GameObject:
   m_ObjectHideFlags: 0

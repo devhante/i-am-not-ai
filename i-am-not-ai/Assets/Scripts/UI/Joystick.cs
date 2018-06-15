@@ -8,10 +8,12 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public Vector3 Normal { get; private set; }
     Transform controller;
+    float radius;
 
     private void Awake()
     {
         controller = transform.GetChild(0);
+        radius = GetComponent<RectTransform>().sizeDelta.x * 0.5f;
     }
 
     private void Update()
@@ -38,12 +40,10 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             Vector3 mousePos = Input.mousePosition;
 
             float distance = Vector3.Distance(centerPos, mousePos);
-            float ratio = 64.0f / distance;
-            Vector3 position = centerPos + (mousePos - centerPos) * ratio;
-            controller.position = position;
+            if (distance > 64) mousePos = centerPos + Vector3.ClampMagnitude((mousePos - centerPos), radius);
+            controller.position = mousePos;
 
             Normal = Vector3.Normalize(mousePos - centerPos);
-            //float degree = Mathf.Atan2(mousePos.y - centerPos.y, mousePos.x - centerPos.x) * 180.0f / Mathf.PI;
             Debug.Log(Normal);
 
             yield return null;
