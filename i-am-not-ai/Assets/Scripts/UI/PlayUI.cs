@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayMenu : Menu<PlayMenu>
+public class PlayUI : UI<PlayUI>
 {
     public Button buttonSettings;
     public Button buttonAttack;
@@ -12,6 +12,6 @@ public class PlayMenu : Menu<PlayMenu>
 	protected override void Awake()
 	{
 		base.Awake();
-		buttonSettings.onClick.AddListener(() => { SettingsMenu.Open();});
+		buttonSettings.onClick.AddListener(() => { SettingsUI.Open();});
 	}
 }

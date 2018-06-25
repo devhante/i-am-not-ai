@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Menu : MonoBehaviour
+public abstract class UI : MonoBehaviour
 {
 	public abstract void OnBackPressed();
 }
 
-public abstract class Menu<T> : Menu where T : Menu<T>
+public abstract class UI<T> : UI where T : UI<T>
 {
 	public static T Instance { get; private set; }
 
@@ -27,10 +27,10 @@ public abstract class Menu<T> : Menu where T : Menu<T>
 
 	protected static void Open()
 	{
-		if (Instance != null) //이미있음
+		if (Instance != null)
 			return;
 
-		MenuManager.Instance.OpenMenu<T>();
+		UIManager.Instance.OpenUI<T>();
 	}
 	protected static void Close()
 	{
@@ -40,6 +40,6 @@ public abstract class Menu<T> : Menu where T : Menu<T>
 			return;
 		}
 
-		MenuManager.Instance.CloseMenu();
+		UIManager.Instance.CloseMenu();
 	}
 }

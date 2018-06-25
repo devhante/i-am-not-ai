@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SettingsMenu : Menu<SettingsMenu>
+public class SettingsUI : UI<SettingsUI>
 {
 	
 }
