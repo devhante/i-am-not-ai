@@ -16,11 +16,6 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         radius = GetComponent<RectTransform>().sizeDelta.x * 0.5f;
     }
 
-    private void Update()
-    {
-
-    }
-
     public void OnPointerDown(PointerEventData eventData)
     {
         StartCoroutine("PointerDown");
@@ -30,6 +25,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         StopCoroutine("PointerDown");
         controller.position = transform.position;
+        Normal = Vector3.zero;
     }
 
     IEnumerator PointerDown()

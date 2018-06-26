@@ -34,14 +34,16 @@ public class CharController : MonoBehaviour
         anim = GetComponent<Animator>();
         col = GetComponent<CapsuleCollider>();
         rigib = GetComponent<Rigidbody>();
-        C_rotate = true;
+        C_rotate = false;
     }
 
     private void FixedUpdate()
     {
         //현재 정의된 입력으로 되어있으나, UI가 나오면 UI로 변경한다
-        float input_h = Input.GetAxis("Horizontal");
-        float input_v = Input.GetAxis("Vertical");
+        Vector2 joystic_Input = PlayUI.Instance.GetMoveJoystickValue();
+
+        float input_h = joystic_Input.x;
+        float input_v = joystic_Input.y;
         anim.SetFloat("Speed", input_v);
 
         //혹시 옆으로만 가고 있을 때에도 애니에 속도를 넣어줘야 해서.(수정예정)
