@@ -44,7 +44,6 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             controller.position = mousePos;
 
             Normal = Vector3.Normalize(mousePos - centerPos);
-            Debug.Log(Normal);
 
             yield return null;
         }
