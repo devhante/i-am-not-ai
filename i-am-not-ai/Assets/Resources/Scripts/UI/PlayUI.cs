@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PlayUI : UI<PlayUI>
 {
     public Button buttonSettings;
-    public Button buttonAttack;
+    public Button buttonKick;
+    public Button buttonRun;
     public Joystick moveJoystick;
     public Joystick watchJoystick;
 
@@ -14,12 +15,18 @@ public class PlayUI : UI<PlayUI>
     {
         base.Awake();
         buttonSettings.onClick.AddListener(() => { SettingsUI.Open(); });
-        buttonAttack.onClick.AddListener(() => { OnClickButtonAttack(); });
+        buttonKick.onClick.AddListener(() => { OnClickButtonKick(); });
+        buttonRun.onClick.AddListener(() => { OnClickButtonRun(); });
     }
 
-    private void OnClickButtonAttack()
+    private void OnClickButtonKick()
     {
-        Debug.Log("OnClickButtonAttack");
+        Debug.Log("OnClickButtonKick");
+    }
+
+    private void OnClickButtonRun()
+    {
+        Debug.Log("OnClickButtonKick");
     }
 
     public Vector3 GetMoveJoystickValue()
