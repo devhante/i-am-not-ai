@@ -6,9 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(Rigidbody))]
 
-public class CharController : MonoBehaviour
-{
-    public static CharController Instance;
+public class AI : MonoBehaviour {
+    public static AI Instance;
     [SerializeField] private Camera mainCamera;
 
     //앞으로 달리기 및 걷기와 뒷걸음의 속도
@@ -24,6 +23,8 @@ public class CharController : MonoBehaviour
 
     //캐릭터를 움직일 벡터
     private Vector3 velocity;
+    float input_h;
+    float input_v;
 
     //카메라 -> 캐릭터 선회 여부
     private bool C_rotate;
@@ -35,19 +36,19 @@ public class CharController : MonoBehaviour
         C_rotate = true;
     }
 
+    private void Start()
+    {
+        StartCoroutine("Move");
+    }
+
     private void FixedUpdate()
     {
-        //현재 정의된 입력으로 되어있으나, UI가 나오면 UI로 변경한다
-        Vector2 joystic_Input = PlayUI.Instance.GetMoveJoystickValue();
-
-        float input_h = joystic_Input.x;
-        float input_v = joystic_Input.y;
         anim.SetFloat("Speed", input_v);
 
         //혹시 옆으로만 가고 있을 때에도 애니에 속도를 넣어줘야 해서.(수정예정)
-        if(Mathf.Abs(input_v) <= 0.1f)
+        if (Mathf.Abs(input_v) <= 0.1f)
             anim.SetFloat("Speed", Mathf.Abs(input_h));
-        
+
         anim.SetFloat("Direction", input_h);
 
         anim.speed = animSpeed;
@@ -55,17 +56,14 @@ public class CharController : MonoBehaviour
         //애니매이션 상태 초기화
         anim.SetBool("Run", false);
 
-        #region Move
-
         velocity = new Vector3(input_h, 0, input_v);
-        //다음과 같이 카메라에 맞추어 수정하는 것이 적합하다고 본다
+
+        #region Move
 
         #region Rotate_Look
         if (C_rotate)
         {
-            Vector3 forward = mainCamera.transform.TransformDirection(Vector3.forward);
-            forward.y = 0;
-            var lookDirection = Quaternion.LookRotation(forward);
+            var lookDirection = Quaternion.LookRotation(velocity);
             Vector3 euler = new Vector3(0, lookDirection.y, 0);
 
             transform.rotation = lookDirection;
@@ -108,36 +106,25 @@ public class CharController : MonoBehaviour
         transform.localPosition += velocity * Time.fixedDeltaTime;
 
         #endregion Move
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+    IEnumerator Move()
+    {
+        while (true)
         {
-            Attack();
+            float wait = Random.Range(0, 3);
+
+            input_h = Random.Range(-1, 2);
+            input_v = Random.Range(-1, 2);
+
+            var ray = Physics.Raycast(this.transform.position, velocity * 3);
+            if (ray)
+            {
+                yield return new WaitForSeconds(wait);
+                continue;
+            }
+            
+            yield return new WaitForSeconds(wait);
         }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if(C_rotate == true)
-                SetLookRotate(false);
-            else if (C_rotate == false)
-                SetLookRotate(true);
-        }
-    }
-
-
-    public void SetLookRotate(bool value)
-    {
-        C_rotate = value;
-    }
-
-    public void Attack()
-    {
-        if (! anim.GetBool("Attack"))
-            StartCoroutine("Attack_Couroutine");
-    }
-
-    public IEnumerator Attack_Couroutine()
-    {
-        anim.SetBool("Attack", true);
-        yield return new WaitForSeconds(2f);
-        anim.SetBool("Attack", false);
     }
 }
