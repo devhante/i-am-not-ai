@@ -440,7 +440,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonSettings: {fileID: 114257641118363106}
+<<<<<<< Updated upstream
   buttonAttack: {fileID: 114218623367453968}
+=======
+  buttonKick: {fileID: 114953545685401196}
+  buttonRun: {fileID: 0}
+>>>>>>> Stashed changes
   moveJoystick: {fileID: 114834368021208894}
   watchJoystick: {fileID: 114250156235148654}
 --- !u!114 &114834368021208894
