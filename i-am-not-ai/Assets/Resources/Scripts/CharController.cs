@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class CharController : MonoBehaviour
 {
+    public static CharController Instance;
     [SerializeField] private Camera mainCamera;
 
     //앞으로 달리기 및 걷기와 뒷걸음의 속도
@@ -18,9 +19,7 @@ public class CharController : MonoBehaviour
 
     //애니매이션 재생속도
     [SerializeField] private float animSpeed = 1.5f;
-    
-    private CapsuleCollider col;
-    private Rigidbody rigib;
+
     private Animator anim;
 
     //캐릭터를 움직일 벡터
@@ -31,10 +30,9 @@ public class CharController : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         anim = GetComponent<Animator>();
-        col = GetComponent<CapsuleCollider>();
-        rigib = GetComponent<Rigidbody>();
-        C_rotate = false;
+        C_rotate = true;
     }
 
     private void FixedUpdate()
@@ -122,6 +120,8 @@ public class CharController : MonoBehaviour
             else if (C_rotate == false)
                 SetLookRotate(true);
         }
+
+
     }
 
 
