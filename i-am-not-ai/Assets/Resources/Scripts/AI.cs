@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class AI : MonoBehaviour {
     public static AI Instance;
-    [SerializeField] private Camera mainCamera;
+    [SerializeField] private GameObject mainCamera;
 
     //앞으로 달리기 및 걷기와 뒷걸음의 속도
     [SerializeField] private float forwardRunSpeed = 7.0f;
@@ -115,9 +115,9 @@ public class AI : MonoBehaviour {
             float wait = Random.Range(0, 3);
 
             input_h = Random.Range(-1, 2);
-            input_v = Random.Range(-1, 2);
+            input_v = Random.Range(0, 2);
 
-            var ray = Physics.Raycast(this.transform.position, velocity * 3);
+            var ray = Physics.Raycast(this.transform.position, this.transform.position + new Vector3(input_h, 0, input_v) * 3);
             if (ray)
             {
                 yield return new WaitForSeconds(wait);
