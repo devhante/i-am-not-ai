@@ -4072,8 +4072,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1726283129250826}
-  m_LocalRotation: {x: 0.00002335545, y: 0.94313014, z: -0.33242372, w: 0.00006626251}
-  m_LocalPosition: {x: -0.00040534505, y: 3.7997398, z: 2.8700027}
+  m_LocalRotation: {x: 0.18373571, y: -0.7786147, z: 0.26600167, w: 0.5378136}
+  m_LocalPosition: {x: 2.8057423, y: 3.7997408, z: 1.0472922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4678744021688950}
@@ -4308,7 +4308,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1129884711477808}
-  m_LocalRotation: {x: 0.01816538, y: -0.000000013871613, z: -0.00000013403587, w: 0.9998351}
+  m_LocalRotation: {x: 0.018162198, y: -0.00000032782555, z: -0.000000074505806, w: 0.99983513}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4719,7 +4719,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1408219504666824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 40.151, z: -48.97}
+  m_LocalPosition: {x: 0, y: 1.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4215973595525856}
@@ -4738,7 +4738,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1454134178844332}
-  m_LocalRotation: {x: 0.0000005364347, y: -0.0000000114196155, z: -0.00000013429235,
+  m_LocalRotation: {x: -0.00000055879354, y: 0.000001013279, z: -0.000000029802322,
     w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -5186,8 +5186,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1137988403340524}
-  m_LocalRotation: {x: -0.018117249, y: -0.000000008989446, z: -0.00000013448516,
-    w: 0.9998359}
+  m_LocalRotation: {x: -0.018117934, y: -0.0000002682209, z: -0.000000074505806, w: 0.9998359}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5412,7 +5411,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!81 &81769861074762300
 AudioListener:
@@ -5755,7 +5754,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_BindingMode: 5
-  m_SplineCurvature: 0.2
+  m_SplineCurvature: 1
   m_Orbits:
   - m_Height: 4.5
     m_Radius: 1.75

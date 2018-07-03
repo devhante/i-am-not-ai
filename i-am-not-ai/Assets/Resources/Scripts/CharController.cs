@@ -70,6 +70,7 @@ public class CharController : MonoBehaviour
             Vector3 forward = mainCamera.transform.TransformDirection(Vector3.forward);
             forward.y = 0;
             var lookDirection = Quaternion.LookRotation(forward);
+            
             Vector3 euler = new Vector3(0, lookDirection.y, 0);
 
             transform.rotation = lookDirection;
@@ -109,6 +110,7 @@ public class CharController : MonoBehaviour
         }
 
         //연산이 끝난 벡터를 로컬포지션에서 더한다
+        velocity.y = 0;
         transform.localPosition += velocity * Time.fixedDeltaTime;
 
         #endregion Move
