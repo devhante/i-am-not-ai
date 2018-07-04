@@ -26,14 +26,10 @@ public class AI : MonoBehaviour {
     float input_h;
     float input_v;
 
-    //카메라 -> 캐릭터 선회 여부
-    private bool C_rotate;
-
     private void Awake()
     {
         Instance = this;
         anim = GetComponent<Animator>();
-        C_rotate = true;
     }
 
     private void Start()
@@ -59,19 +55,6 @@ public class AI : MonoBehaviour {
         velocity = new Vector3(input_h, 0, input_v);
 
         #region Move
-
-        #region Rotate_Look
-        if (C_rotate)
-        {
-            var lookDirection = Quaternion.LookRotation(velocity);
-            Vector3 euler = new Vector3(0, lookDirection.y, 0);
-
-            transform.rotation = lookDirection;
-
-            //로컬 방향에 맞게 벨로시티를 수정
-            velocity = mainCamera.transform.TransformDirection(velocity);
-        }
-        #endregion Rotate_Look
 
         //입력에 따라 속도의 변화를 준다
         if (Mathf.Abs(input_v) > 0.1f || Mathf.Abs(input_h) > 0.1f)
@@ -106,6 +89,15 @@ public class AI : MonoBehaviour {
         transform.localPosition += velocity * Time.fixedDeltaTime;
 
         #endregion Move
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Att")
+        {
+            //레그돌화
+            Destroy(this.gameObject);
+        }
     }
 
     IEnumerator Move()

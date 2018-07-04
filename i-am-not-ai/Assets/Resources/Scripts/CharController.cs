@@ -10,6 +10,7 @@ public class CharController : MonoBehaviour
 {
     public static CharController Instance;
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private GameObject AttackBox;
 
     //앞으로 달리기 및 걷기와 뒷걸음의 속도
     [SerializeField] private float forwardRunSpeed = 7.0f;
@@ -143,7 +144,10 @@ public class CharController : MonoBehaviour
     public IEnumerator Attack_Couroutine()
     {
         anim.SetBool("Attack", true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.3f);
+        AttackBox.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        AttackBox.SetActive(false);
         anim.SetBool("Attack", false);
     }
 }

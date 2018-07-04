@@ -77,7 +77,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             Vector3 destinationFrame = controllerPos + (destination - controllerPos).normalized * radius * 4 * Time.deltaTime;
             float distance = Vector3.Distance(centerPos, destinationFrame);
 
-            Debug.Log((destination - destinationFrame).magnitude);
+            //Debug.Log((destination - destinationFrame).magnitude);
 
             if (distance != 0)
             {
