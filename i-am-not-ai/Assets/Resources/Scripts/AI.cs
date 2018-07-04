@@ -8,7 +8,6 @@ using UnityEngine;
 
 public class AI : MonoBehaviour {
     public static AI Instance;
-    [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject regdollPreFab;
 
     //앞으로 달리기 및 걷기와 뒷걸음의 속도
@@ -45,7 +44,6 @@ public class AI : MonoBehaviour {
         //혹시 옆으로만 가고 있을 때에도 애니에 속도를 넣어줘야 해서.(수정예정)
         if (Mathf.Abs(input_v) <= 0.1f)
             anim.SetFloat("Speed", Mathf.Abs(input_h));
-
         anim.SetFloat("Direction", input_h);
 
         anim.speed = animSpeed;
@@ -56,7 +54,7 @@ public class AI : MonoBehaviour {
         velocity = new Vector3(input_h, 0, input_v);
 
         #region Move
-
+        
         //입력에 따라 속도의 변화를 준다
         if (Mathf.Abs(input_v) > 0.1f || Mathf.Abs(input_h) > 0.1f)
         {
@@ -110,7 +108,11 @@ public class AI : MonoBehaviour {
             float wait = Random.Range(0, 3);
 
             input_h = Random.Range(-1, 2);
-            input_v = Random.Range(0, 2);
+            input_v = Random.Range(-1, 2);
+
+            var lookDirection = Quaternion.LookRotation(new Vector3(input_h, 0 , input_v));
+            Debug.Log(lookDirection);
+            this.transform.rotation = lookDirection;
 
             var ray = Physics.Raycast(this.transform.position, this.transform.position + new Vector3(input_h, 0, input_v) * 1, 0>>9);
             if (ray)
