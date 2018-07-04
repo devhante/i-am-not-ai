@@ -9,6 +9,7 @@ using UnityEngine;
 public class AI : MonoBehaviour {
     public static AI Instance;
     [SerializeField] private GameObject mainCamera;
+    [SerializeField] private GameObject regdollPreFab;
 
     //앞으로 달리기 및 걷기와 뒷걸음의 속도
     [SerializeField] private float forwardRunSpeed = 7.0f;
@@ -95,6 +96,8 @@ public class AI : MonoBehaviour {
     {
         if(other.tag == "Att")
         {
+            GameObject regdoll = Instantiate<GameObject>(regdollPreFab);
+            regdoll.transform.position = this.transform.position;
             //레그돌화
             Destroy(this.gameObject);
         }
@@ -109,9 +112,11 @@ public class AI : MonoBehaviour {
             input_h = Random.Range(-1, 2);
             input_v = Random.Range(0, 2);
 
-            var ray = Physics.Raycast(this.transform.position, this.transform.position + new Vector3(input_h, 0, input_v) * 3);
+            var ray = Physics.Raycast(this.transform.position, this.transform.position + new Vector3(input_h, 0, input_v) * 1, 0>>9);
             if (ray)
             {
+                input_h = 0;
+                input_v = 0;
                 yield return new WaitForSeconds(wait);
                 continue;
             }
