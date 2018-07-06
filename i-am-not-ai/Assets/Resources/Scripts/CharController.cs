@@ -36,7 +36,7 @@ public class CharController : NetworkBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        C_rotate = false;
+        C_rotate = true;
         if (isLocalPlayer)
         {
             Instance = this;
@@ -146,10 +146,6 @@ public class CharController : NetworkBehaviour
             {
                 this.transform.Rotate(0, RotateSpeed, 0);
             }
-        }
-        else
-        {
-
         }
     }
 

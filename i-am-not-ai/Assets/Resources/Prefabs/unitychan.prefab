@@ -5311,6 +5311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 20806516070462202}
   AttackBox: {fileID: 1250687689561188}
+  RotateSpeed: 1
   forwardRunSpeed: 7
   forwardSpeed: 3
   sideSpeed: 2
