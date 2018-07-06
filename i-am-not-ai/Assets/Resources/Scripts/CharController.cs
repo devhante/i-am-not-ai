@@ -13,6 +13,9 @@ public class CharController : NetworkBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private GameObject AttackBox;
 
+    //수동 회전 속도
+    [SerializeField] private float RotateSpeed = 1.0f;
+
     //앞으로 달리기 및 걷기와 뒷걸음의 속도
     [SerializeField] private float forwardRunSpeed = 7.0f;
     [SerializeField] private float forwardSpeed = 3.0f;
@@ -33,7 +36,7 @@ public class CharController : NetworkBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        C_rotate = true;
+        C_rotate = false;
         if (isLocalPlayer)
         {
             Instance = this;
@@ -132,6 +135,16 @@ public class CharController : NetworkBehaviour
                     SetLookRotate(false);
                 else if (C_rotate == false)
                     SetLookRotate(true);
+            }
+
+            //수동 로테이트 조정
+            if (Input.GetKey(KeyCode.T))
+            {
+                this.transform.Rotate(0, -RotateSpeed, 0);
+            }
+            if (Input.GetKey(KeyCode.Y))
+            {
+                this.transform.Rotate(0, RotateSpeed, 0);
             }
         }
         else
