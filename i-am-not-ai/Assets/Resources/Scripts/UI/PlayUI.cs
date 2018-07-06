@@ -19,7 +19,7 @@ public class PlayUI : UI<PlayUI>
 
     private void OnClickButtonAttack()
     {
-        CharController.Instance.Attack();
+        CharController.Instance.SendMessage("Attack");
     }
 
     public Vector3 GetMoveJoystickValue()

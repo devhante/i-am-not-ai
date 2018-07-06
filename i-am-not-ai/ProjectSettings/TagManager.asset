@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UI
   - Att
+  - PlayerWaitRoom
   layers:
   - Default
   - TransparentFX
