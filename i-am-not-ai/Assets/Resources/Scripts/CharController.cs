@@ -37,10 +37,16 @@ public class CharController : NetworkBehaviour
     {
         anim = GetComponent<Animator>();
         C_rotate = true;
+    }
+
+    private void Start()
+    {
         if (isLocalPlayer)
         {
             Instance = this;
         }
+        if (!isLocalPlayer)
+            mainCamera.gameObject.SetActive(false);
     }
 
     private void FixedUpdate()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CapsuleCollider))]
@@ -95,8 +96,12 @@ public class AI : MonoBehaviour {
         if(other.tag == "Att")
         {
             GameObject regdoll = Instantiate<GameObject>(regdollPreFab);
-            regdoll.transform.position = this.transform.position;
+            regdoll.transform.position = this.transform.position += Vector3.down;
             //레그돌화
+
+            //서버에도 소환
+            NetworkServer.Spawn(regdoll);
+
             Destroy(this.gameObject);
         }
     }
