@@ -1467,6 +1467,7 @@ GameObject:
   - component: {fileID: 114088676599113810}
   - component: {fileID: 114639478562910894}
   - component: {fileID: 114642633899509066}
+  - component: {fileID: 114822827745679054}
   m_Layer: 0
   m_Name: unitychan
   m_TagString: Player
@@ -5317,6 +5318,25 @@ MonoBehaviour:
   sideSpeed: 2
   backwardSpeed: 2
   animSpeed: 1.5
+--- !u!114 &114822827745679054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542750344965588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1590678366, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Animator: {fileID: 95246723683976780}
+  m_ParameterSendBits: 255
+  param0: 
+  param1: 
+  param2: 
+  param3: 
+  param4: 
+  param5: 
 --- !u!114 &114876023549927472
 MonoBehaviour:
   m_ObjectHideFlags: 1

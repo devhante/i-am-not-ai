@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(Rigidbody))]
 
-public class AI : MonoBehaviour {
+public class AI : NetworkBehaviour {
     public static AI Instance;
     [SerializeField] private GameObject regdollPreFab;
 
@@ -95,15 +95,22 @@ public class AI : MonoBehaviour {
     {
         if(other.tag == "Att")
         {
-            GameObject regdoll = Instantiate<GameObject>(regdollPreFab);
-            regdoll.transform.position = this.transform.position += Vector3.down;
-            //레그돌화
-
-            //서버에도 소환
-            NetworkServer.Spawn(regdoll);
-
-            Destroy(this.gameObject);
+            CmdDie();
         }
+    }
+
+    [Command]
+    void CmdDie()
+    {
+
+        GameObject regdoll = Instantiate<GameObject>(regdollPreFab);
+        regdoll.transform.position = this.transform.position += Vector3.down;
+        //레그돌화
+
+        //서버에도 소환
+        NetworkServer.Spawn(regdoll);
+
+        Destroy(this.gameObject);
     }
 
     IEnumerator Move()

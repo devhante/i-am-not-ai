@@ -163,15 +163,8 @@ public class CharController : NetworkBehaviour
 
     private void Attack()
     {
-        if (isLocalPlayer)
-        {
-            if (!anim.GetBool("Attack"))
-                StartCoroutine("Attack_Couroutine");
-        }
-        else
-        {
-
-        }
+        if (!anim.GetBool("Attack"))
+            StartCoroutine("Attack_Couroutine");
     }
 
     private IEnumerator Attack_Couroutine()
