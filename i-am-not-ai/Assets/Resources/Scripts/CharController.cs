@@ -13,6 +13,8 @@ public class CharController : NetworkBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private GameObject AttackBox;
 
+    [SerializeField] private GameObject regdollPreFab;
+
     //수동 회전 속도
     [SerializeField] private float RotateSpeed = 1.0f;
 
@@ -152,6 +154,22 @@ public class CharController : NetworkBehaviour
             {
                 this.transform.Rotate(0, RotateSpeed, 0);
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Att")
+        {
+            GameObject regdoll = Instantiate<GameObject>(regdollPreFab, this.transform);
+            regdoll.transform.position = this.transform.position += Vector3.down;
+            //레그돌화 
+
+            //서버에도 소환 
+            NetworkServer.Spawn(regdoll);
+
+            Destroy(this.transform.GetChild(0).gameObject);
+            Destroy(this.transform.GetChild(1).gameObject);
         }
     }
 

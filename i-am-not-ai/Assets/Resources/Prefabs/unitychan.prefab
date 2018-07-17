@@ -5312,6 +5312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 20806516070462202}
   AttackBox: {fileID: 1250687689561188}
+  regdollPreFab: {fileID: 1713950400817690, guid: 44a3a49b15e35c04db1f60b1032b3a51,
+    type: 2}
   RotateSpeed: 1
   forwardRunSpeed: 7
   forwardSpeed: 3
