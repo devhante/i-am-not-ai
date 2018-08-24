@@ -13,6 +13,7 @@ using System.Collections;
 
 public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 {
+
 	public float animSpeed = 1.5f;				// アニメーション再生速度設定
 	public float lookSmoother = 3.0f;			// a smoothing setting for camera motion
 	public bool useCurves = true;				// Mecanimでカーブ調整を使うか設定する
